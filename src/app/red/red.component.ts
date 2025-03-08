@@ -52,7 +52,7 @@ export class RedComponent {
   }
 
   analyze() {
-    let path = `/analyse/${this.id}/${this.name}/${this.line}`
+    let path = `/analyse/${this.id}/${this.name}/${this.unite}/${this.line}`
     this.router.navigate(path.split('/'));
   }
 }

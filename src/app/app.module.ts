@@ -9,6 +9,7 @@ import { GreenComponent } from './green/green.component';
 import { RedComponent } from './red/red.component';
 import { AnalyseComponent } from './analyse/analyse.component';
 import { FormsModule } from '@angular/forms';
+import { CauseComponent } from './cause/cause.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     HelloComponent,
     GreenComponent,
     RedComponent,
-    AnalyseComponent
+    AnalyseComponent,
+    CauseComponent
   ],
   imports: [
     BrowserModule,

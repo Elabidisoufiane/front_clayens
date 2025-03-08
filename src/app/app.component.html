@@ -3,8 +3,8 @@
   <div class="d-flex flex-column justify-content-center align-items-center w-100 h-100">
     
     <!-- Unite 1 -->
-    <div *ngIf="groupedMachines[1]" class="machine-grid" style="background-color: black;">
-      <div *ngFor="let line of getLines(1)" class="d-flex flex-wrap  justify-content-between w-100" style="background-color: aliceblue; ">
+    <div *ngIf="groupedMachines[1]" class="machine-grid" style="background-color: rgb(93, 91, 91);">
+      <div *ngFor="let line of getLines(1)" class="d-flex flex-wrap  justify-content-between w-100" style="background-color: rgb(42, 44, 45); ">
         <div 
           *ngFor="let image of groupedMachines[1][line]" 
           class="machine-card"
@@ -27,8 +27,8 @@
     </div>
 
     <!-- Unite 2 -->
-    <div *ngIf="groupedMachines[2]" class="machine-grid" style="background-color: black;">
-      <div *ngFor="let line of getLines(2)" class="d-flex flex-wrap justify-content-between w-100" style="background-color: aliceblue;">
+    <div *ngIf="groupedMachines[2]" class="machine-grid" style="background-color:rgb(93, 91, 91);">
+      <div *ngFor="let line of getLines(2)" class="d-flex flex-wrap justify-content-between w-100" style="background-color: rgb(42, 44, 45);">
         <div 
           *ngFor="let image of groupedMachines[2][line]" 
           class="machine-card"

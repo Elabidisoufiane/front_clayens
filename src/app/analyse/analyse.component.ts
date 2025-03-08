@@ -13,6 +13,7 @@ export class AnalyseComponent {
   nameMachine: string = '';
   lineMachine: number = 0;
   idMachine: number = 0;
+  unite: number = 0;
 
   defect: string = ''; // User input for defect
   selectedRegleurId: number | null = null; // Store Regleur ID
@@ -27,6 +28,7 @@ export class AnalyseComponent {
       this.nameMachine = params['name'];
       this.lineMachine = +params['line']; // Convert to number
       this.idMachine = +params['id'];
+      this.unite= +params['unite']
     });
 
     this.fetchRegleurs(); // Load regleurs from API
@@ -59,7 +61,7 @@ export class AnalyseComponent {
     this.http.post(`${this.apiUrl}/defects/${this.idMachine.toString()}/${this.selectedRegleurId.toString()}`, defectData).subscribe({
       next: () => {
         console.log(defectData);
-        let path = `/causes/${this.defect}`
+        let path = `/causes/${this.defect}/${this.idMachine}/${this.nameMachine}/${this.lineMachine}/${this.unite}`
         this.router.navigate(path.split('/'));
       },
       error: (error) => {

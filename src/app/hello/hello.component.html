@@ -1,10 +1,40 @@
+<div *ngIf="!dblclick" class="full-screen-container border-orange justify-content-center align-items-center w-100">
+  <div class="container">
+    <div  class="box blue">
+      <div>
+        <p style="margin-top: 60px;font-size: 18px;    font-weight: bold; margin-bottom: 30px;">Machine: {{nameMachine}} -- Unite: {{unite}} -- Line: {{lineMachine}}</p>
+      <p style="font-size: 18px;    font-weight: bold;"><p style="color: rgb(255, 0, 0);">Defect:</p> {{defect}}
+      <p style="font-size: 18px;    font-weight: bold;"><p style="color: rgb(11, 202, 103);">Description:</p> {{machines[cause].cause}}
+      <p style="font-size: 18px;    font-weight: bold;"><p style="color: rgb(11, 202, 103);">Solution:</p> {{machines[cause].solution}}
 
-<div class="navbar">
-  <ul>
-    <li *ngFor="let cause of listCauses; let i = index">
-      <button class="btn" (click)="onCauseClick(cause)"> Cause </button>
-    </li>
-  </ul>
+      </div>
+      
+      <button  class="btn green" (click)="goBack()">Go Back</button>
+      <button  class="btn blue1" (click)="modifier()">Modifier</button>
+      <button  class="btn red" (click)="valider()">Valider</button>
+
+    </div>
+</div>
 </div>
 
-<div #rendererContainer class="renderer-container"></div>
+
+
+
+<div class="navbar border-orange" >
+  <div>
+    <ul>
+      <li *ngFor="let cause of machines; let i = index">
+        <button class="btn" (click)="onCauseClick(i)" (dblclick)="onCausedblClick(i)"> Cause {{i+1}}</button>
+      </li>
+    </ul>
+  </div> 
+
+  <div class="align-items-center " style="margin-top: 30px;">
+    <p style="font-size: 18px;  margin-left: 20px;  font-weight: bold; color: aliceblue;">Machine : {{nameMachine}} </p>
+    <p style="font-size: 18px; margin-left: 20px;    font-weight: bold; color: aliceblue;">Unite : {{unite}}</p>
+    <p style="font-size: 18px;  margin-left: 20px;   font-weight: bold; color: aliceblue;">Line : {{lineMachine}}</p>
+  </div>
+  
+</div>
+
+<div  #rendererContainer class="renderer-container"></div>

@@ -14,7 +14,7 @@
 }
 /* Style for the left navbar */
 .navbar {
-  width: 200px;
+  width: 250px;
   position: fixed;
   top: 0;
   left: 0;
@@ -45,8 +45,84 @@
 
 /* Style for the content area */
 .renderer-container {
-  margin-left: 200px; /* Make space for the sidebar */
+  margin-left: 250px; /* Make space for the sidebar */
+  margin-right: 200px; /* Make space for the sidebar */
+
   padding: 0px;
 }
 
+.border-orange {
+  border: 10px solid orange;
+  box-sizing: border-box;
+}
+.container {
+  display: flex;
+  width: 6000px;
+  height: 500px;
+  justify-content: center;
+  align-items: center;
+}
 
+.box {
+  width: 700px;
+  height: 700px;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  border: 2px solid rgb(102, 102, 237);
+}
+
+.blue1 {
+  background-color: rgb(40, 40, 242);
+}
+
+.red {
+  background-color: lightcoral; 
+}
+
+.btn {
+  padding: 10px;
+  margin: 60px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px; /* Adjust the size as needed */
+  font-weight: bold;
+}
+
+.red {
+  background-color: red;
+  color: white;
+}
+
+.green {
+  background-color: green;
+  color: white;
+}
+
+.blue {
+  background-color: rgb(86, 86, 89);
+  color: white;
+}
+.border-orange {
+  border: 10px solid orange;
+  box-sizing: border-box;
+}
+
+.full-screen-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(68, 66, 70);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border: 10px solid orange;
+  box-sizing: border-box;
+  overflow: hidden;
+  z-index: 9999; /* High value to ensure it's on top */
+
+}

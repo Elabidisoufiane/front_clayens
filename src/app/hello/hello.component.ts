@@ -26,6 +26,11 @@ export class HelloComponent implements AfterViewInit {
   nameMachine: string = '';
   lineMachine: number = 0;
   idMachine: number = 0;
+  unite: number = 0;
+  machines: { cause: string, solution: string, indice: number}[] = [];
+  dblclick: boolean=true;
+  cause: number=0;
+
 
 
   defect: string=""
@@ -44,7 +49,7 @@ export class HelloComponent implements AfterViewInit {
     this.loadModel();
     this.animate()
   }
-
+  
   private fetchDefectData(): void {
     this.http.post<any[]>(this.apiUrl, { defect: this.defect }).subscribe(
       (response) => {
@@ -53,16 +58,13 @@ export class HelloComponent implements AfterViewInit {
         // Check if the response is an array and it's properly formatted
         if (Array.isArray(response)) {
           // Ensure all items are correctly formatted and accessible
-          this.listCauses = response.map(item => {
-            if (item.indice) {
-              console.log('Extracted indices:', this.listCauses);
-              return item.indice; // Extract the 'indice' if it exists
-              
-            }
-            return null; // If no indice, return null
-          }).filter(indice => indice !== null); // Remove null values
-  
-         
+          this.machines = response.map(machine => ({
+            cause: machine.cause,
+            solution: machine.solution,
+            indice: machine.indice,
+            
+          }));
+           
         } else {
           console.error('Expected an array but received:', response);
         }
@@ -75,8 +77,12 @@ export class HelloComponent implements AfterViewInit {
   
   ngOnInit() {
     this.route.params.subscribe(params => {
-    
+      this.nameMachine = params['name'];
+      this.lineMachine = +params['line']; // Convert to number
+      this.idMachine = +params['id'];
       this.defect = params['defect']
+      this.unite = +params['unite']
+      console.log("hello")
     });
 
   }
@@ -203,4 +209,17 @@ export class HelloComponent implements AfterViewInit {
     this.loadModel();
     console.log(this.firstMeshAssigned )
   }
+  onCausedblClick(cause: number){
+    console.log("dblClicked");
+    this.cause=cause;
+    this.dblclick= false ;
+  }
+  goBack() {
+    this.dblclick = true;
+    
+  }
+  
+  
+  modifier(){}
+  valider(){}
 }
