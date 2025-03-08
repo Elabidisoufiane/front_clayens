@@ -1,0 +1,114 @@
+/* Animation to change card size */
+@keyframes card-size-change {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  /* Apply animation when the card has an error */
+  .card.error {
+    animation: card-size-change 1s infinite;
+  }
+  
+  .image-container {
+      display: flex;
+      justify-content: center;
+      gap: 0px;
+      flex-wrap: wrap;
+    }
+    
+    .image-container div {
+      cursor: pointer;
+      text-align: center;
+      width: 70px;
+    }
+    
+    .image-container img {
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      transition: transform 0.3s ease-in-out;
+      object-fit: cover;
+    }
+    
+    .image-container img:hover {
+      transform: scale(1.1);
+    }
+    
+    .image-container p {
+      margin-top: 0px;
+      font-weight: bold;
+      color: #333;
+    }
+  
+    .border-orange {
+      border: 30px solid orange;
+      box-sizing: border-box;
+    }
+    
+    .full-screen-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgb(68, 66, 70);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      border: 10px solid orange;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    
+    .machine-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .machine-card {
+      flex: 1 1 calc(12% - 20px); /* Dynamically adjust width */
+      max-width: 150px; /* Ensures cards don't get too big */
+      margin: 10px;
+    }
+    
+    .card {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .card-img-top {
+      width: 100%;
+      height: auto;
+      max-height: 80px;
+      object-fit: contain;
+    }
+    
+    .card-body {
+      padding: 5px;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .machine-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+    }
+    

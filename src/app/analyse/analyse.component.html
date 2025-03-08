@@ -1,0 +1,39 @@
+<div class="full-screen-container border-orange justify-content-center align-items-center w-100">
+
+<div class="container mt-4 ">
+    <h2>Declare Defect for {{ nameMachine }} (Line {{ lineMachine }})</h2>
+
+    <form (ngSubmit)="submitDefect()">
+        <!-- Defect Description Input -->
+        <div class="mb-3">
+            <label for="defectDescription" class="form-label">Defect Description:</label>
+            <input 
+                type="text" 
+                class="form-control" 
+                id="defectDescription" 
+                [(ngModel)]="defect"
+                name="defectDescription"
+                required
+            />
+        </div>
+
+        <!-- Regleur Selection -->
+        <div class="mb-3">
+            <label for="regleur" class="form-label">Assign to Regleur:</label>
+            <select 
+                class="form-control" 
+                id="regleur" 
+                [(ngModel)]="selectedRegleurId" 
+                name="regleur"
+                required
+            >
+                <option value="" disabled selected>Select a Regleur</option>
+                <option *ngFor="let regleur of regleurs" [value]="regleur.id">{{ regleur.name }} <p>  </p>:     :  <h1>{{ regleur.role }}</h1></option>
+            </select>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Submit Defect</button>
+    </form>
+</div>
+</div>

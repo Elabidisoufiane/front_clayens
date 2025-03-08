@@ -1,0 +1,10 @@
+
+<div class="navbar">
+  <ul>
+    <li *ngFor="let cause of listCauses; let i = index">
+      <button class="btn" (click)="onCauseClick(cause)"> Cause </button>
+    </li>
+  </ul>
+</div>
+
+<div #rendererContainer class="renderer-container"></div>

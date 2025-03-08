@@ -1,0 +1,53 @@
+<router-outlet></router-outlet>
+<div class="full-screen-container border-orange" *ngIf="three">
+  <div class="d-flex flex-column justify-content-center align-items-center w-100 h-100">
+    
+    <!-- Unite 1 -->
+    <div *ngIf="groupedMachines[1]" class="machine-grid" style="background-color: black;">
+      <div *ngFor="let line of getLines(1)" class="d-flex flex-wrap  justify-content-between w-100" style="background-color: aliceblue; ">
+        <div 
+          *ngFor="let image of groupedMachines[1][line]" 
+          class="machine-card"
+          (click)="navigateToDetail(image.hasError, image.label, image.line, image.id, image.unite)"
+
+        >
+          <div class="card shadow-sm p-2 text-center" 
+            [ngClass]="{
+              'bg-danger text-white': image.hasError, 
+              'bg-success text-white': !image.hasError, 
+              'error': image.hasError
+            }" >
+            <img [src]="src" [alt]="image.label" class="card-img-top small-img rounded">
+            <div class="card-body p-1">
+              <p class="fw-bold small-text text-truncate">{{ image.label }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Unite 2 -->
+    <div *ngIf="groupedMachines[2]" class="machine-grid" style="background-color: black;">
+      <div *ngFor="let line of getLines(2)" class="d-flex flex-wrap justify-content-between w-100" style="background-color: aliceblue;">
+        <div 
+          *ngFor="let image of groupedMachines[2][line]" 
+          class="machine-card"
+          (click)="navigateToDetail(image.hasError, image.label, image.line, image.id, image.unite)"
+        >
+          <div class="card shadow-sm p-2 text-center" 
+            [ngClass]="{
+              'bg-danger text-white': image.hasError, 
+              'bg-success text-white': !image.hasError, 
+              'error': image.hasError
+            }">
+            <img [src]="src" [alt]="image.label" class="card-img-top small-img rounded">
+            <div class="card-body p-1">
+              <p class="fw-bold small-text text-truncate">{{ image.label }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

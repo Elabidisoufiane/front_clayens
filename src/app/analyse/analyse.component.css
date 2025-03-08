@@ -1,0 +1,90 @@
+/* Ensure the body and html take full height and no margin */
+html, body {
+    height: 100%; /* Take full height of the viewport */
+    margin: 100px; /* Remove default margin */
+    display: flex; /* Use flexbox layout */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    background-color: #f4f4f9; /* Optional: Background color for the page */
+    padding-top: 50px; /* Adds space at the top of the page */
+}
+  
+  .container {
+    width: 150%;
+    max-width: 600px; /* Set a max-width for the form */
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background for the form */
+    border-radius: 8px; /* Rounded corners for the form */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+
+  }
+  
+  .container h2 {
+    text-align: center;
+    color: #333; /* Dark text color */
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .form-label {
+    font-weight: bold; /* Bold labels */
+    font-size: 16px;
+    color: #555; /* Darker text for labels */
+  }
+  
+  .form-control {
+    border-radius: 5px; /* Rounded corners for inputs */
+    border: 1px solid #ccc; /* Light border color */
+    box-shadow: none; /* Remove default shadow */
+  }
+  
+  select.form-control {
+    background-color: #fff;
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+  
+  .btn-primary {
+    width: 100%; /* Make the submit button full-width */
+    padding: 12px;
+    background-color: #007bff; /* Bootstrap blue */
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px; /* Rounded corners for the button */
+    transition: background-color 0.3s; /* Smooth transition on hover */
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  .mb-3 {
+    margin-bottom: 1.5rem; /* Space below form elements */
+  }
+  
+  input.form-control, select.form-control {
+    padding: 10px; /* Padding for input fields */
+  }
+  
+  .border-orange {
+    border: 30px solid orange;
+    box-sizing: border-box;
+  }
+  
+  .full-screen-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(68, 66, 70);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border: 10px solid orange;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
