@@ -72,6 +72,10 @@ html, body {
     border: 30px solid orange;
     box-sizing: border-box;
   }
+  .green {
+    background-color: green;
+    color: white;
+  }
   
   .full-screen-container {
     position: fixed;

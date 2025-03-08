@@ -9,7 +9,7 @@
 
       </div>
       
-      <button  class="btn green" (click)="goBack()">Go Back</button>
+      <button  class="btn green" (click)="goBack1()">Go Back</button>
       <button  class="btn blue1" (click)="modifier()">Modifier</button>
       <button  class="btn red" (click)="valider()">Valider</button>
 
@@ -24,7 +24,7 @@
   <div>
     <ul>
       <li *ngFor="let cause of machines; let i = index">
-        <button class="btn" (click)="onCauseClick(i)" (dblclick)="onCausedblClick(i)"> Cause {{i+1}}</button>
+        <button class="btn red" (click)="onCauseClick(i)" (dblclick)="onCausedblClick(i)"> Cause {{i+1}}</button>
       </li>
     </ul>
   </div> 
@@ -34,7 +34,10 @@
     <p style="font-size: 18px; margin-left: 20px;    font-weight: bold; color: aliceblue;">Unite : {{unite}}</p>
     <p style="font-size: 18px;  margin-left: 20px;   font-weight: bold; color: aliceblue;">Line : {{lineMachine}}</p>
   </div>
-  
+  <div>
+    <button class="btn red" (click)="newone()" >New One</button>
+    <button class="btn green" (click)="goBack()" > goBack</button>
+  </div>
 </div>
 
 <div  #rendererContainer class="renderer-container"></div>

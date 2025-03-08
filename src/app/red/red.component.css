@@ -6,8 +6,8 @@
   }
   
   .box {
-    width: 350px;
-    height: 350px;
+    width: 600px;
+    height: 400px;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
@@ -23,8 +23,8 @@
   }
   
   .btn {
-    padding: 10px;
-    margin: 10px;
+    padding: 14px;
+    margin: 30px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -32,11 +32,14 @@
     font-weight: bold;
   }
   
-  .red {
+  .red1 {
     background-color: rgb(124, 109, 109);
     color: white;
   }
-  
+  .red {
+    background-color: rgb(227, 9, 9);
+    color: white;
+  }
   .green {
     background-color: green;
     color: white;

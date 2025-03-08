@@ -50,7 +50,11 @@ export class RedComponent {
     this.router.navigate(['/']);
 
   }
+  goBack(){
+    this.sharedService.setThree(true); // Hide the main view
 
+    this.router.navigate(['/']);
+  }
   analyze() {
     let path = `/analyse/${this.id}/${this.name}/${this.unite}/${this.line}`
     this.router.navigate(path.split('/'));

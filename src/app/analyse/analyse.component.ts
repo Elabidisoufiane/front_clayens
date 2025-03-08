@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SharedService } from '../shared.service';
+import { label } from 'three/tsl';
 
 @Component({
   selector: 'app-analyse',
@@ -68,5 +69,10 @@ export class AnalyseComponent {
         console.error("Error submitting defect:", error);
       }
     });
+  }
+
+  goBack(){
+    let path = `/red/${this.idMachine}/${this.nameMachine}/${this.lineMachine}/${this.unite}`
+    this.router.navigate(path.split('/'));
   }
 }

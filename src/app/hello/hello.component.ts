@@ -214,12 +214,16 @@ export class HelloComponent implements AfterViewInit {
     this.cause=cause;
     this.dblclick= false ;
   }
-  goBack() {
+  goBack1() {
     this.dblclick = true;
     
   }
   
-  
+  goBack(){
+    let path = `/analyse/${this.idMachine}/${this.nameMachine}/${this.unite}/${this.lineMachine}`
+    this.router.navigate(path.split('/'));
+  }
   modifier(){}
   valider(){}
+  newone(){}
 }
