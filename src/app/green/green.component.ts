@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SharedService } from '../shared.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-green',
@@ -10,16 +11,17 @@ import { SharedService } from '../shared.service';
   styleUrl: './green.component.css'
 })
 export class GreenComponent {
+  path:string='';
   name: string = '';
   line: number = 0;
   id: number = 0;
   state:boolean=true;
   unite:number=0;
-  apiUrl: string = 'http://localhost:8080/machines'; // Replace with your API URL
 
     constructor(private route: ActivatedRoute, private router: Router , private http: HttpClient,private sharedService: SharedService) {}
   
     ngOnInit() {
+      this.path= environment.apiUrl;
       this.route.params.subscribe(params => {
         this.name = params['label'];
         this.line = params['line']; // Convert to number
@@ -38,7 +40,7 @@ export class GreenComponent {
       };
     
       // Send PUT request with JSON body
-      this.http.put(`${this.apiUrl}/${this.id}`, updatedMachine).subscribe({
+      this.http.put(`http://${this.path}:8080/machines/${this.id}`, updatedMachine).subscribe({
         next: (response) => {
           console.log('Machine updated successfully:', response);
         },

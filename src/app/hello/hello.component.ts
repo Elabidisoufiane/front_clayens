@@ -4,6 +4,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-hello',
@@ -30,13 +31,13 @@ export class HelloComponent implements AfterViewInit {
   machines: { cause: string, solution: string, indice: number}[] = [];
   dblclick: boolean=true;
   cause: number=0;
+  path:string='';
 
 
 
   defect: string=""
   listCauses: number[] = [];
 
-  apiUrl = 'http://127.0.0.1:5000/get_defect_analysis';
 
   constructor(private router: Router, private http: HttpClient, private route: ActivatedRoute) {}
 
@@ -51,7 +52,7 @@ export class HelloComponent implements AfterViewInit {
   }
   
   private fetchDefectData(): void {
-    this.http.post<any[]>(this.apiUrl, { defect: this.defect }).subscribe(
+    this.http.post<any[]>(this.path, { defect: this.defect }).subscribe(
       (response) => {
         console.log('Defect data received:', response);
   
@@ -76,6 +77,8 @@ export class HelloComponent implements AfterViewInit {
   }
   
   ngOnInit() {
+  
+    this.path = `http://${environment.apiUrl}:5000/get_defect_analysis`
     this.route.params.subscribe(params => {
       this.nameMachine = params['name'];
       this.lineMachine = +params['line']; // Convert to number

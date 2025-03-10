@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { SharedService } from './shared.service';
-
+import { environment } from '../environments/environment';
 @Component({
   selector: 'app-root',
   standalone: false,
@@ -10,6 +10,7 @@ import { SharedService } from './shared.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit, OnDestroy {
+  path:string = '';
   three: boolean = true;
   src: string = 'machine.png';
   machines: { label: string, hasError: boolean, line: number, id: number, unite: number }[] = [];
@@ -19,6 +20,7 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(private http: HttpClient, private router: Router, private sharedService: SharedService) {}
 
   ngOnInit() {
+    this.path=environment.apiUrl
     this.sharedService.three$.subscribe(value => {
       this.three = value;
     });
@@ -27,7 +29,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   fetchMachines() {
-    this.http.get<any[]>('http://localhost:8080/machines').subscribe((response) => {
+    this.http.get<any[]>(`http://${this.path}:8080/machines`).subscribe((response) => {
       this.machines = response.map(machine => ({
         label: machine.name,
         hasError: machine.state,
